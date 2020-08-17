@@ -2,7 +2,7 @@
 	
 
 $connectstr_dbhost = '127.0.0.1';
-$connectstr_dbname = 'bdincendios';
+$connectstr_dbname = 'localdb';
 $connectstr_dbusername = 'azure';
 $connectstr_dbpassword = '6#vWHD_$';
 
