@@ -33,7 +33,9 @@
 
 		$idincendio = $_REQUEST['id'];
 
-		$query = mysqli_query($conection,"SELECT i.idincendio,i.fecha,i.departamento,i.provincia,i.distrito from incendios i
+		$query = mysqli_query($conection,"SELECT i.idincendio,i.fecha,d.distrito,p.provincia,de.departamento from incendios i    INNER JOIN Distrito d on i.distrito=d.iddistrito 
+				                 INNER JOIN Provincia p on i.provincia=p.idprovincia
+                                 INNER JOIN Departamento de on i.departamento=de.iddepartamento
 												WHERE i.idincendio = $idincendio");
 		
 		mysqli_close($conection);

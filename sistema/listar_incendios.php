@@ -18,6 +18,9 @@
 	<section id="container">
 		
 		<a href="registro_incendios.php" class="btn_new">Registrar Incendio</a>
+
+        <a href="registro_incendios.php" class="btn_new">Predecir Zonas De Riesgo</a>
+
 		
 		<form action="buscar_usuarios.php" method="get" class="form_search">
 			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
@@ -31,6 +34,12 @@
 				<th>Departamento</th>
 				<th>Provincia</th>
 				<th>Distrito</th>
+				<th>Personas Afectadas</th>
+				<th>Personas Damnificadas</th>
+				<th>Personas Fallecidas</th>
+				<th>Viviendas Afectadas</th>
+				<th>Viviendas Destruidas</th>
+	
 				<th>Acciones</th>
 			</tr>
 		<?php 
@@ -39,7 +48,7 @@
 			$result_register = mysqli_fetch_array($sql_registe);
 			$total_registro = $result_register['total_registro'];
 
-			$por_pagina = 5;
+			$por_pagina = 10;
 
 			if(empty($_GET['pagina']))
 			{
@@ -51,7 +60,9 @@
 			$desde = ($pagina-1) * $por_pagina;
 			$total_paginas = ceil($total_registro / $por_pagina);
 
-			$query = mysqli_query($conection,"SELECT i.idincendio,i.fecha,de.departamento,p.provincia,d.distrito FROM 
+			$query = mysqli_query($conection,"SELECT i.idincendio,i.fecha,de.departamento,p.provincia,d.distrito,i.per_afec,i.per_damn,i.per_fall,i.viv_afec,i.viv_dest
+
+				FROM 
 				    incendios i  INNER JOIN Distrito d on i.distrito=d.iddistrito 
 				                 INNER JOIN Provincia p on i.provincia=p.idprovincia
                                  INNER JOIN Departamento de on i.departamento=de.iddepartamento
@@ -69,9 +80,17 @@
 				<tr>
 					<td><?php echo $data["idincendio"]; ?></td>
 					<td><?php echo $data["fecha"]; ?></td>
-					<td><?php echo $data["departamento"]; ?></td>
-					<td><?php echo $data["provincia"]; ?></td>
+					<td><?php echo $data['departamento'] ?></td>
+					<td><?php echo $data['provincia'] ?></td>
 					<td><?php echo $data['distrito'] ?></td>
+                    <td><?php echo $data["per_afec"]; ?></td>
+					<td><?php echo $data["per_damn"]; ?></td>
+					<td><?php echo $data["per_fall"]; ?></td>
+
+                   	<td><?php echo $data["viv_afec"]; ?></td>
+					<td><?php echo $data["viv_dest"]; ?></td>
+
+
 					<td>
 						<a class="link_edit" href="editar_incendio.php?id=<?php echo $data["idincendio"]; ?>">Editar</a>|
 					

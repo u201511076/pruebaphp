@@ -55,14 +55,14 @@
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Registro de Zonas de Riesgo</title>
+	<title>Nueva Zona de Riesgo</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
 	<section id="container">
 		
 		<div class="form_register">
-			<h1>Registro de Zonas de Riesgo</h1>
+			<h1>Nueva Zona de Riesgo</h1>
 			<hr>
 			<div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
 
@@ -109,7 +109,11 @@
 
               
 
-				<input type="submit" value="Crear Zona de Riesgo" class="btn_save">
+				<form >
+				
+				<a href="listar_zonasriesgo.php" class="btn_cancel">&nbsp&nbsp Cancelar</a>
+				<input type="submit" value="Aceptar" class="btn_ok">
+			</form>
 
 			</form>
 

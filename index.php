@@ -11,7 +11,7 @@ if(!empty($_SESSION['active']))
 	{
 		if(empty($_POST['usuario']) || empty($_POST['clave']))
 		{
-			$alert = 'Ingrese su usuario y su clave';
+			$alert = 'Ingrese el usuario y/o contraseña';
 		}else{
 
 			require_once "conexion.php";
@@ -39,7 +39,7 @@ if(!empty($_SESSION['active']))
                
 				header('location: sistema/');
 			}else{
-				$alert = 'El usuario o la clave son incorrectos';
+				$alert = 'El usuario o la contraseña que ha ingresado no son correctos. Inténtelo de nuevo.';
 				session_destroy();
 			}
 

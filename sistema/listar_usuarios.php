@@ -20,9 +20,9 @@
 <body>
 	<?php include "includes/header.php"; ?>
 	<section id="container">
+
 		
-		
-		<a href="registro_usuario.php" class="btn_new">Crear usuario</a>
+			<a href="registro_usuario.php" class="btn_new">Crear usuario</a>
 		
 		<form action="buscar_usuarios.php" method="get" class="form_search">
 			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">

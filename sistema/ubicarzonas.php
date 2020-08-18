@@ -25,7 +25,7 @@ header("Content-type: text/xml");
 echo '<markers>';
 
 while ($row = mysqli_fetch_assoc($result)){
-  // Add to XML document node
+ 
   echo '<marker ';
   echo 'idzona="' . $row['idzona'] . '" ';
   echo 'nombre="' . parseToXML($row['nombre']) . '" ';

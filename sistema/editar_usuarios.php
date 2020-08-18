@@ -161,7 +161,7 @@
 						}
 					 ?>
 				</select>
-				<input type="submit" value="Actualizar usuario" class="btn_save">
+				<input type="submit" value="Actualizar" class="btn_save">
 
 			</form>
 

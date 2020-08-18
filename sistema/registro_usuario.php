@@ -23,7 +23,6 @@
 			$user   = $_POST['usuario'];
 			$clave  = md5($_POST['clave']);
 			$rol    = $_POST['rol'];
-		
 			$usuario_id= $_SESSION['user'];
 			$root = $_SERVER ['REMOTE_ADDR'];
           
@@ -60,14 +59,14 @@
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Registro Usuario</title>
+	<title>Nuevo Usuario</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
 	<section id="container">
 		
 		<div class="form_register">
-			<h1>Registro usuario</h1>
+			<h1>Nuevo usuario</h1>
 			<hr>
 			<div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
 
@@ -80,8 +79,8 @@
 				<input type="email" name="correo" id="correo" placeholder="Correo electrónico">
 				<label for="usuario">Usuario</label>
 				<input type="text" name="usuario" id="usuario" placeholder="Usuario">
-				<label for="clave">Clave</label>
-				<input type="password" name="clave" id="clave" placeholder="Clave de acceso">
+				<label for="clave">Contraseña</label>
+				<input type="password" name="clave" id="clave" placeholder="Contraseña">
 				<label for="rol">Tipo Usuario</label>
 
 				<?php 
@@ -106,7 +105,13 @@
 						}
 					 ?>
 				</select>
-				<input type="submit" value="Crear usuario" class="btn_save">
+				
+				<form >
+				
+				<a href="listar_usuarios.php" class="btn_cancel">&nbsp&nbsp Cancelar</a>
+				<input type="submit" value="Aceptar" class="btn_ok">
+			</form>
+
 
 			</form>
 

@@ -45,14 +45,14 @@
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Registro de Incendios</title>
+	<title>Nuevo Incendios</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
 	<section id="container">
 		
 		<div class="form_register">
-			<h1>Registro de Incendios</h1>
+			<h1>Nuevo Incendios</h1>
 			<hr>
 			<div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
 
@@ -62,24 +62,80 @@
 				<label for="fecha">Fecha</label>
 				<input type="date" name="fecha" id="fecha" placeholder="Fecha del Incendio">
 
-				<label for="lista_departamento">Departamento</label>
+				<label for="departamento">Departamento</label>
  
-				<select name="lista_departamento" id="lista_departamento">
+                <?php 
+
+					$query_dep = mysqli_query($conection,"SELECT * FROM departamento order by departamento");
+					
+					$result_dep = mysqli_num_rows($query_dep);
+
+				 ?>
+
+				<select name="departamento" id="departamento">
+					<?php 
+						if($result_dep > 0)
+						{
+							while ($departamento = mysqli_fetch_array($query_dep)) {
+					?>
+							<option value="<?php echo $departamento["iddepartamento"]; ?>"><?php echo $departamento["departamento"] ?></option>
+					<?php 
+							
+							}
+							
+						}
+					 ?>
 				</select>
 
-
 				<label for="provincia">Provincia</label>
-   
-				<select name="provincia" id="lista_provincia">
 				
-					
-				  </select>
+                <?php 
+					$query_prov = mysqli_query($conection,"SELECT * FROM provincia order by provincia ");
+				
+					$result_prov = mysqli_num_rows($query_prov);
+
+				 ?>
+
+				<select name="provincia" id="provincia">
+					<?php 
+						if($result_prov > 0)
+						{
+							while ($provincia = mysqli_fetch_array($query_prov)) {
+					?>
+							<option value="<?php echo $provincia["idprovincia"]; ?>"><?php echo $provincia["provincia"] ?></option>
+					<?php 
+							
+							}
+							
+						}
+					 ?>
+				</select>
 				
 				<label for="distrito">Distrito</label>
 
                 
+                <?php 
+					$query_dis = mysqli_query($conection,"SELECT * FROM distrito order by distrito ");
+					mysqli_close($conection);
+					$result_dis = mysqli_num_rows($query_dis);
+
+
+				 ?>
+
 				<select name="distrito" id="lista_distrito">
 				
+				<?php 
+						if($result_dis > 0)
+						{
+							while ($distrito = mysqli_fetch_array($query_dis)) {
+					?>
+							<option value="<?php echo $distrito["iddistrito"]; ?>"><?php echo $distrito["distrito"] ?></option>
+					<?php 
+							
+							}
+							
+						}
+					 ?>
                  </select>
 
 			    <label for="per_afec">Personas Afectadas</label>
@@ -99,9 +155,14 @@
 				<input type="number" name="viv_dest" id="viv_dest" min="0" placeholder="0">
 			
 
-             
-                 <input type="submit" value="Registrar " class="btn_save">
-                	
+               
+                 	
+				<form >
+				
+				<a href="listar_incendios.php" class="btn_cancel">&nbsp&nbsp Cancelar</a>
+				<input type="submit" value="Aceptar" class="btn_ok">
+			</form>
+
                 	
                
                 	
@@ -109,10 +170,9 @@
 			</form>
 
 		</div>
-		</section>
-		
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
-       <script type="text/javascript" src="js/index.js"></script>
 
+
+	</section>
+	<?php include "includes/footer.php"; ?>
 </body>
 </html>

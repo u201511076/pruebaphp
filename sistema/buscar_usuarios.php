@@ -32,7 +32,7 @@
 
 		 ?>
 		
-		<h1>Lista de usuarios</h1>
+
 		<a href="registro_usuario.php" class="btn_new">Crear usuario</a>
 		
 		<form action="buscar_usuarios.php" method="get" class="form_search">
@@ -90,7 +90,7 @@
 
 			$query = mysqli_query($conection,"SELECT u.idusuario, u.nombre,u.apellido,u.correo, u.usuario, r.rol FROM usuario u INNER JOIN rol r ON u.rol = r.idrol 
 										WHERE 
-										( u.idusuario LIKE '%$busqueda%' OR 
+										( 
 											u.nombre LIKE '%$busqueda%' OR 
 											u.apellido LIKE '%$busqueda%' OR
 											u.correo LIKE '%$busqueda%' OR 

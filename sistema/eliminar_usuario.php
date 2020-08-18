@@ -18,7 +18,9 @@
 		$query_delete = mysqli_query($conection,"DELETE FROM usuario WHERE idusuario =$idusuario ");
 		mysqli_close($conection);
 		if($query_delete){
+
 			header("location: listar_usuarios.php");
+
 		}else{
 			echo "Error al eliminar";
 		}
