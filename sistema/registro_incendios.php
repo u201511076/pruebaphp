@@ -45,14 +45,14 @@
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Nuevo Incendios</title>
+	<title>Nuevo Incendio</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
 	<section id="container">
 		
 		<div class="form_register">
-			<h1>Nuevo Incendios</h1>
+			<h1>Nuevo Incendio</h1>
 			<hr>
 			<div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
 
@@ -160,7 +160,7 @@
 				<form >
 				
 				<a href="listar_incendios.php" class="btn_cancel">&nbsp&nbsp Cancelar</a>
-				<input type="submit" value="Aceptar" class="btn_ok">
+				<input type="submit" value="Registrar" class="btn_ok">
 			</form>
 
                 	

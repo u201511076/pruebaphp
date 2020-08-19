@@ -43,7 +43,7 @@
 					<a href="#">Configuración</a>
 					<ul>
 						
-						<li><a href="maps.php">Mi Perfil</a></li>	
+						<li><a href="configuracion.php">Mi Perfil</a></li>	
 					</ul>
 				</li>
 				

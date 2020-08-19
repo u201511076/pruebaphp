@@ -109,7 +109,7 @@
 				<form >
 				
 				<a href="listar_usuarios.php" class="btn_cancel">&nbsp&nbsp Cancelar</a>
-				<input type="submit" value="Aceptar" class="btn_ok">
+				<input type="submit" value="Registrar" class="btn_ok">
 			</form>
 
 

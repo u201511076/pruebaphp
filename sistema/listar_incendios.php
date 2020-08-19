@@ -11,7 +11,7 @@
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Lista de Incendios en el Peru</title>
+	<title>Lista de Incendios</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
